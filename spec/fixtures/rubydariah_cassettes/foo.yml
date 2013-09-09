@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dariah.de/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2013 19:50:17 GMT
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html
+    body:
+      encoding: UTF-8
+      string: "\n\t\t\t\t\t<!-- \n\t\t\t\t\t\n\t\t\t\t\tSub-ID: 230591 - erstellt:
+        20130909-215017 \t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t-->\t\n\t\t\t\t\t<html>\n\t\t\t\t\t<head>\n\t\t\t\t\t<title>HOMEPAGE
+        von DARIAH</title>\n\t\t\t\t\t<META NAME=\"Title\" CONTENT=\"HOMEPAGE von
+        DARIAH\">\n\t\t\t\t\t<META NAME=\"Revisit\" CONTENT=\"After 30 days\">\n\t\t\t\t\t<META
+        NAME=\"Keywords\" CONTENT=\"\">\n\t\t\t\t\t<META NAME=\"Description\" CONTENT=\"\">\n\t\t\t\t\t<META
+        NAME=\"Robots\" CONTENT=\"INDEX,FOLLOW\">\n\t\t\t\t\t</head>\n\t\t\t\t\t<frameset
+        cols=\"100%,*\" rows=\"*\" frameborder=0 border=0> \n\t\t\t\t\t<frame src=\"http://www.schlagerfans.de/dariah\"
+        name=\"subframe230591\">\n\t\t\t\t\t</frameset>\n\t\t\t\t\t<noframes>\n\t\t\t\t\t<body
+        bgcolor=#FFFFFF>\n\t\t\t\t\t<h2>www.dariah.de</h2>\n\t\t\t\t\t<h1>HOMEPAGE
+        von DARIAH</h1>\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t</body>\n\t\t\t\t\t</noframes>\n\t\t\t\t\t</html>\n\t\t\t\t\t\n\n\t\t\t\t"
+    http_version: 
+  recorded_at: Mon, 09 Sep 2013 19:49:40 GMT
+recorded_with: VCR 2.5.0

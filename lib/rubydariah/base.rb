@@ -1,7 +1,8 @@
 module Rubydariah
   module Storage
     class Base
-      def initialise(username, password)
+      def initialize(username, password)
+          @auth = {:username => username, :password => password}
       end
     end
   end
