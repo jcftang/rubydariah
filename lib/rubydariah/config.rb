@@ -1,3 +1,0 @@
-module Rubydariah
-
-end
