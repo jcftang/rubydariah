@@ -20,5 +20,22 @@ module Rubydariah
       end
       response
     end
+
+
+    # Post
+    def post(file)
+      RestClient.proxy = @auth[:proxy]
+      puts "endpoint is #{@auth[:endpoint]} and file is #{file}"
+      response = RestClient.post(@auth[:endpoint], :'Content-Type' => "audio/mp3", :data => File.read(file) )
+      if response.code == 201
+        puts "success"
+      else
+        puts "something went wrong"
+      end
+      puts response
+      response
+    end
+
+
   end
 end

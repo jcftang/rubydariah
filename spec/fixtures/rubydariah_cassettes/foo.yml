@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - ! '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -19,25 +19,23 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Sep 2013 09:47:02 GMT
+      - Tue, 10 Sep 2013 10:49:43 GMT
       Server:
       - Apache
-      Set-Cookie:
-      - PHPIDSESS=413738638; expires=Tue 10-Sep-2013 09:52:02 GMT; path=/
       Content-Type:
       - text/html
       X-Cache:
-      - MISS from gateway.tchpc.tcd.ie
+      - MISS from thammuz.tchpc.tcd.ie
       X-Cache-Lookup:
-      - MISS from gateway.tchpc.tcd.ie:8080
+      - MISS from thammuz.tchpc.tcd.ie:3128
       Via:
-      - 1.0 gateway.tchpc.tcd.ie:8080 (squid/2.6.STABLE21)
+      - 1.0 thammuz.tchpc.tcd.ie:3128 (squid/2.6.STABLE21)
       Proxy-Connection:
       - close
     body:
-      encoding: UTF-8
-      string: "\n\t\t\t\t\t<!-- \n\t\t\t\t\t\n\t\t\t\t\tSub-ID: 230591 - erstellt:
-        20130910-114702 \t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t-->\t\n\t\t\t\t\t<html>\n\t\t\t\t\t<head>\n\t\t\t\t\t<title>HOMEPAGE
+      encoding: US-ASCII
+      string: ! "\n\t\t\t\t\t<!-- \n\t\t\t\t\t\n\t\t\t\t\tSub-ID: 230591 - erstellt:
+        20130910-124943 \t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t-->\t\n\t\t\t\t\t<html>\n\t\t\t\t\t<head>\n\t\t\t\t\t<title>HOMEPAGE
         von DARIAH</title>\n\t\t\t\t\t<META NAME=\"Title\" CONTENT=\"HOMEPAGE von
         DARIAH\">\n\t\t\t\t\t<META NAME=\"Revisit\" CONTENT=\"After 30 days\">\n\t\t\t\t\t<META
         NAME=\"Keywords\" CONTENT=\"\">\n\t\t\t\t\t<META NAME=\"Description\" CONTENT=\"\">\n\t\t\t\t\t<META
@@ -47,5 +45,5 @@ http_interactions:
         bgcolor=#FFFFFF>\n\t\t\t\t\t<h2>www.dariah.de</h2>\n\t\t\t\t\t<h1>HOMEPAGE
         von DARIAH</h1>\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t</body>\n\t\t\t\t\t</noframes>\n\t\t\t\t\t</html>\n\t\t\t\t\t\n\n\t\t\t\t"
     http_version: 
-  recorded_at: Tue, 10 Sep 2013 09:46:20 GMT
+  recorded_at: Tue, 10 Sep 2013 10:49:01 GMT
 recorded_with: VCR 2.5.0

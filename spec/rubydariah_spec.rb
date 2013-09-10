@@ -29,4 +29,12 @@ describe Rubydariah::Storage do
       response.code.should == 200
     end
   end
+
+  it "should post a file" do
+    VCR.use_cassette 'post' do
+      @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/", "foo", "bar", "http://proxy.tchpc.tcd.ie:8080")
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response.code.should == 201
+    end
+  end
 end
