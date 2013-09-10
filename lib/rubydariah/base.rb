@@ -24,7 +24,7 @@ module Rubydariah
     # Options
     def options
       RestClient.proxy = ENV['http_proxy']
-      response = RestClient::Request.execute(:method => :options, url: @auth[:endpoint], :body => "*")
+      response = RestClient::Request.execute(:method => :options, url: @auth[:endpoint], :payload => "*")
       if response.code == 200
         puts "success"
       else

@@ -4,13 +4,15 @@ http_interactions:
     method: options
     uri: http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '*'
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
+      Content-Length:
+      - '1'
       User-Agent:
       - Ruby
   response:
@@ -25,7 +27,7 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Tue, 10 Sep 2013 13:22:31 GMT
+      - Tue, 10 Sep 2013 13:27:16 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -38,5 +40,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 10 Sep 2013 13:22:31 GMT
+  recorded_at: Tue, 10 Sep 2013 13:27:16 GMT
 recorded_with: VCR 2.5.0
