@@ -11,7 +11,7 @@ describe Rubydariah::Storage do
 
   it "should respond" do
     VCR.use_cassette 'foo' do
-      RestClient.proxy = "http://proxy.tchpc.tcd.ie:8080"
+      RestClient.proxy =  ENV['http_proxy']
       response = RestClient.get('http://dariah.de')
       puts response.code
     end
@@ -24,8 +24,8 @@ describe Rubydariah::Storage do
 
   it "should get a file" do
     VCR.use_cassette 'bar' do
-      @auth = Rubydariah::Storage.new("http://dariah.de", "foo", "bar", "http://proxy.tchpc.tcd.ie:8080")
-      response = @auth.get("test")
+      @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT", "foo", "bar")
+      response = @auth.get(url + resource)
       response.code.should == 200
     end
   end
