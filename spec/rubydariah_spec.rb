@@ -17,6 +17,7 @@ describe Rubydariah::Storage do
   end
 
   it "show create a new object" do
-    @connection = Rubydariah::Storage::Base.new("foo", "bar")
+    @auth = Rubydariah::Storage.new("foo", "bar")
+    @auth.should be_kind_of Rubydariah::Storage
   end
 end

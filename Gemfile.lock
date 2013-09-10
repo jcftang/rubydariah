@@ -56,7 +56,10 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     lumberjack (1.0.4)
+    metaclass (0.0.1)
     method_source (0.8.2)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.0)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
@@ -117,6 +120,7 @@ DEPENDENCIES
   guard-yard
   httparty
   jeweler (~> 1.8.7)
+  mocha
   rake
   rb-fchange
   rb-fsevent
