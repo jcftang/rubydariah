@@ -17,6 +17,7 @@ group :development, :test do
   gem "jeweler", "~> 1.8.7"
   gem "simplecov"
   gem "simplecov-rcov"
+  gem "ci_reporter"
 
   # guard - autorun of tests during development cycle
   gem "guard"
