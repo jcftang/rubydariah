@@ -35,6 +35,10 @@ describe Rubydariah::Storage do
       @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT", "foo", "bar")
       response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
       response.code.should == 201
+
+      pid = URI(response.headers[:location]).path.split('/').last
+      response = @auth.delete(pid)
+      response.code.should == 204
     end
   end
 

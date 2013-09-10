@@ -47,5 +47,16 @@ module Rubydariah
       response
     end
 
+    # Delete
+    def delete(pid)
+      response = RestClient.delete("#{@auth[:endpoint]}/#{pid}")
+      if response.code == 204
+        puts "success"
+      else
+        puts "something went wrong"
+      end
+      response
+    end
+
   end
 end
