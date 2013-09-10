@@ -35,9 +35,6 @@ GEM
       yard (>= 0.7.0)
     hashie (2.0.5)
     highline (1.6.19)
-    httparty (0.11.0)
-      multi_json (~> 1.0)
-      multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     jeweler (1.8.7)
       builder
@@ -58,6 +55,7 @@ GEM
     lumberjack (1.0.4)
     metaclass (0.0.1)
     method_source (0.8.2)
+    mime-types (1.24)
     mocha (0.14.0)
       metaclass (~> 0.0.1)
     multi_json (1.8.0)
@@ -86,6 +84,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -118,7 +118,6 @@ DEPENDENCIES
   guard-bundler
   guard-rspec
   guard-yard
-  httparty
   jeweler (~> 1.8.7)
   mocha
   rake
@@ -126,6 +125,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   rdoc (~> 3.12)
+  rest-client
   rspec (~> 2.8.0)
   rspec-expectations
   simplecov

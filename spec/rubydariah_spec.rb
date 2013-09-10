@@ -11,7 +11,7 @@ describe Rubydariah::Storage do
 
   it "should respond" do
     VCR.use_cassette 'foo' do
-      response = HTTParty.get('http://dariah.de')
+      response = RestClient.get('http://dariah.de')
       puts response.code
     end
   end
