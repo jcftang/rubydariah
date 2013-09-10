@@ -25,8 +25,17 @@ describe Rubydariah::Storage do
   it "should get a file" do
     VCR.use_cassette 'bar' do
       @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT", "foo", "bar")
-      response = @auth.get(url + resource)
+      response = @auth.get("resource")
       response.code.should == 200
     end
   end
+
+  it "should get a list of options in the headers" do
+    VCR.use_cassette 'options' do
+      @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT", "foo", "bar")
+      response = @auth.options
+      response.code.should == 200
+    end
+  end
+
 end

@@ -19,11 +19,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Sep 2013 12:51:42 GMT
+      - Tue, 10 Sep 2013 13:12:23 GMT
       Server:
       - Apache
       Set-Cookie:
-      - PHPIDSESS=1396826442; expires=Tue 10-Sep-2013 12:56:42 GMT; path=/
+      - PHPIDSESS=1595678087; expires=Tue 10-Sep-2013 13:17:24 GMT; path=/
       Content-Type:
       - text/html
       X-Cache:
@@ -37,7 +37,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "\n\t\t\t\t\t<!-- \n\t\t\t\t\t\n\t\t\t\t\tSub-ID: 230591 - erstellt:
-        20130910-145142 \t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t-->\t\n\t\t\t\t\t<html>\n\t\t\t\t\t<head>\n\t\t\t\t\t<title>HOMEPAGE
+        20130910-151224 \t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t-->\t\n\t\t\t\t\t<html>\n\t\t\t\t\t<head>\n\t\t\t\t\t<title>HOMEPAGE
         von DARIAH</title>\n\t\t\t\t\t<META NAME=\"Title\" CONTENT=\"HOMEPAGE von
         DARIAH\">\n\t\t\t\t\t<META NAME=\"Revisit\" CONTENT=\"After 30 days\">\n\t\t\t\t\t<META
         NAME=\"Keywords\" CONTENT=\"\">\n\t\t\t\t\t<META NAME=\"Description\" CONTENT=\"\">\n\t\t\t\t\t<META
@@ -47,5 +47,5 @@ http_interactions:
         bgcolor=#FFFFFF>\n\t\t\t\t\t<h2>www.dariah.de</h2>\n\t\t\t\t\t<h1>HOMEPAGE
         von DARIAH</h1>\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\n\t\t\t\t\t<p></p>\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t</body>\n\t\t\t\t\t</noframes>\n\t\t\t\t\t</html>\n\t\t\t\t\t\n\n\t\t\t\t"
     http_version: 
-  recorded_at: Tue, 10 Sep 2013 12:50:59 GMT
+  recorded_at: Tue, 10 Sep 2013 13:11:40 GMT
 recorded_with: VCR 2.5.0
