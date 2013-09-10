@@ -27,7 +27,8 @@ Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |spec|
+require 'ci/reporter/rake/rspec'
+RSpec::Core::RakeTask.new(:spec => ["ci:setup:rspec"]) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 

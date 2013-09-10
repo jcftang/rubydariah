@@ -1,17 +1,17 @@
 module Rubydariah
   class Storage
-    attr_accessor :endpoint, :username, :password, :proxy
+    attr_accessor :endpoint, :username, :password
 
 
     # Initialise
-    def initialize(endpoint, username, password, proxy = nil)
-      @auth = {:endpoint => endpoint, :username => username, :password => password, :proxy => proxy}
+    def initialize(endpoint, username, password)
+      @auth = {:endpoint => endpoint, :username => username, :password => password}
     end
 
 
     # Get
     def get(file)
-      RestClient.proxy = @auth[:proxy]
+      RestClient.proxy = ENV['http_proxy']
       response = RestClient.get(@auth[:endpoint])
       if response.code == 200
         puts "success"
@@ -32,10 +32,20 @@ module Rubydariah
       else
         puts "something went wrong"
       end
-      puts response
-      response
     end
 
+
+    # Options
+    def options
+      RestClient.proxy = ENV['http_proxy']
+      response = RestClient::Request.execute(:method => :options, url: @auth[:endpoint], :payload => "*")
+      if response.code == 200
+        puts "success"
+      else
+        puts "something went wrong"
+      end
+      response
+    end
 
   end
 end

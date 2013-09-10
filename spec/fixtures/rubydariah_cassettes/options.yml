@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: options
+    uri: http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT
+    body:
+      encoding: US-ASCII
+      string: ! '*'
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '1'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Allow:
+      - OPTIONS, GET, HEAD, POST, PUT, DELETE
+      Content-Length:
+      - '0'
+      Date:
+      - Tue, 10 Sep 2013 13:43:02 GMT
+      X-Cache:
+      - MISS from gateway.tchpc.tcd.ie
+      X-Cache-Lookup:
+      - MISS from gateway.tchpc.tcd.ie:8080
+      Via:
+      - 1.0 gateway.tchpc.tcd.ie:8080 (squid/2.6.STABLE21)
+      Proxy-Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ''
+    http_version: 
+  recorded_at: Tue, 10 Sep 2013 13:43:02 GMT
+recorded_with: VCR 2.5.0
