@@ -13,14 +13,6 @@ describe Rubydariah::Storage do
     @auth = Rubydariah::Storage.new("http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT", "foo", "bar")
   end
 
-  it "should respond" do
-    VCR.use_cassette 'foo' do
-      RestClient.proxy =  ENV['http_proxy']
-      response = RestClient.get('http://dariah.de')
-      puts response.code
-    end
-  end
-
   it "should create a new object" do
     @auth.should be_kind_of Rubydariah::Storage
   end
