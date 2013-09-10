@@ -11,13 +11,22 @@ describe Rubydariah::Storage do
 
   it "should respond" do
     VCR.use_cassette 'foo' do
+      RestClient.proxy = "http://proxy.tchpc.tcd.ie:8080"
       response = RestClient.get('http://dariah.de')
       puts response.code
     end
   end
 
-  it "show create a new object" do
-    @auth = Rubydariah::Storage.new("foo", "bar")
+  it "should create a new object" do
+    @auth = Rubydariah::Storage.new("http://dariah.de", "foo", "bar")
     @auth.should be_kind_of Rubydariah::Storage
+  end
+
+  it "should get a file" do
+    VCR.use_cassette 'bar' do
+      @auth = Rubydariah::Storage.new("http://dariah.de", "foo", "bar", "http://proxy.tchpc.tcd.ie:8080")
+      response = @auth.get("test")
+      response.code.should == 200
+    end
   end
 end
