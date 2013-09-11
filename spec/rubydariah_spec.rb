@@ -51,6 +51,7 @@ describe Rubydariah::Storage do
     VCR.use_cassette 'get' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
       file_data = File.read(file_location)
+      md5 = Digest::MD5.hexdigest(file_data)
       status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
@@ -60,7 +61,8 @@ describe Rubydariah::Storage do
 
       status, data = @auth.get(pid)
       status.should == 200
-      data.should be_true ## probably need a better check
+      get_md5 = Digest::MD5.hexdigest(data)
+      get_md5.should == md5
 
       status = @auth.delete(pid)
       status.should == 204
