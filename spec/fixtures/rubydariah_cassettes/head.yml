@@ -2860,11 +2860,11 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Location:
-      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163120
+      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163119
       Etag:
       - ! '"7e6739ee02b095961b39a05bf4f17b88"'
       Last-Modified:
-      - Wed, 11 Sep 2013 09:00:56 GMT
+      - Wed, 11 Sep 2013 09:00:55 GMT
       Content-Type:
       - application/x-www-form-urlencoded
       Content-Length:
@@ -2885,8 +2885,8 @@ http_interactions:
     http_version: 
   recorded_at: Wed, 11 Sep 2013 09:00:56 GMT
 - request:
-    method: delete
-    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163120
+    method: head
+    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163119
     body:
       encoding: US-ASCII
       string: ''
@@ -2899,15 +2899,21 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
     headers:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Wed, 11 Sep 2013 09:00:56 GMT
+      - Wed, 11 Sep 2013 09:00:55 GMT
+      Etag:
+      - ! '"7e6739ee02b095961b39a05bf4f17b88"'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
       Date:
-      - Wed, 11 Sep 2013 09:00:56 GMT
+      - Wed, 11 Sep 2013 09:00:55 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:

@@ -4,15 +4,22 @@ module Rubydariah
 
 
     # Initialise
-    def initialize(endpoint, username, password)
-      @auth = {:endpoint => endpoint, :username => username, :password => password}
+    def initialize(endpoint, username=nil, password=nil)
+      @endpoint = endpoint
+
+      unless (username.nil? || password.nil?)
+        @client = RestClient::Resource.new endpoint, username, password
+      else
+        @client = RestClient::Resource.new endpoint
+      end
+
       RestClient.proxy = ENV['http_proxy']
     end
 
 
     # Get
     def get(file)
-      response = RestClient.get("#{@auth[:endpoint]}/#{file}")
+      response = @client[file].get
       if response.code == 200
         puts "success"
       else
@@ -21,11 +28,20 @@ module Rubydariah
       response
     end
 
+    # Head
+    def head(file)
+      response = @client[file].head
+      if response.code == 200
+        puts "success"
+      else
+        puts "something went wrong"
+      end
+      response
+    end
 
     # Post
     def post(file)
-      puts "endpoint is #{@auth[:endpoint]} and file is #{file}"
-      response = RestClient.post @auth[:endpoint], :data => File.new(file, 'rb')
+      response = @client.post File.new(file, 'rb')
       if response.code == 201
         puts "success"
       else
@@ -38,7 +54,7 @@ module Rubydariah
 
     # Options
     def options
-      response = RestClient::Request.execute(:method => :options, url: @auth[:endpoint], :payload => "*")
+      response = RestClient::Request.execute(:method => :options, url: @endpoint, :payload => "*")
       if response.code == 200
         puts "success"
       else
@@ -49,7 +65,7 @@ module Rubydariah
 
     # Delete
     def delete(pid)
-      response = RestClient.delete("#{@auth[:endpoint]}/#{pid}")
+      response = @client[pid].delete
       if response.code == 204
         puts "success"
       else

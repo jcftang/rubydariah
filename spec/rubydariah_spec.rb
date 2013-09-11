@@ -42,6 +42,19 @@ describe Rubydariah::Storage do
     end
   end
 
+  it "should get the header" do
+    VCR.use_cassette 'head' do
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response.code.should == 201
+
+      pid = URI(response.headers[:location]).path.split('/').last
+      response = @auth.head(pid)
+      response.code.should == 200
+
+      response = @auth.delete(pid)
+      response.code.should == 204
+    end
+  end
 
   it "should get a list of options in the headers" do
     VCR.use_cassette 'options' do
