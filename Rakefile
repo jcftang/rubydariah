@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rubydariah"
   gem.homepage = "http://github.com/jcftang/rubydariah"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "jtang@tchpc.tcd.ie"
-  gem.authors = ["Jimmy Tang"]
+  gem.summary = %Q{A thin ruby wrapper to the Dariah API}
+  gem.description = %Q{This gem provides low level access to the Dariah infrastructure}
+  gem.email = "jtang@tchpc.tcd.ie, skenny@tchpc.tcd.ie, kcassidy@tchpc.tcd.ie"
+  gem.authors = ["Jimmy Tang", "Stuart Kenny", "Kathryn Cassidy"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
