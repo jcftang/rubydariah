@@ -2,6 +2,8 @@
 
 rubydariah is a wrapper library to the Dariah API's.
 
+Initially only includes the storage api for use with Digital Repository of Ireland repository systems.
+
 == Contributing to rubydariah
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
