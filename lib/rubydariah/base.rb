@@ -12,7 +12,7 @@ module Rubydariah
 
     # Get
     def get(file)
-      response = RestClient.get(@auth[:endpoint])
+      response = RestClient.get(@auth[:endpoint] + "/" + file)
       if response.code == 200
         puts "success"
       else
@@ -31,7 +31,7 @@ module Rubydariah
       else
         puts "something went wrong"
       end
- 
+
       response
     end
 
