@@ -32,9 +32,13 @@ describe Rubydariah::Storage do
       status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       status.should == 201
 
-      response = @auth.get(pid)
-      response.code.should == 200
-      response.headers[:content_type].should eq('audio/mpeg')
+      status, content_type = @auth.head(pid)
+      status.should == 200
+      content_type.should eq('audio/mpeg')
+
+      status, data = @auth.get(pid)
+      status.should == 200
+      data.should be_true ## probably need a better check
 
       status = @auth.delete(pid)
       status.should == 204
@@ -46,9 +50,9 @@ describe Rubydariah::Storage do
       status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       status.should == 201
 
-      response = @auth.head(pid)
-      response.code.should == 200
-      response.headers[:content_type].should eq('audio/mpeg')
+      status, content_type = @auth.head(pid)
+      status.should == 200
+      content_type.should eq('audio/mpeg')
 
       status = @auth.delete(pid)
       status.should == 204

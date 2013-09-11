@@ -19,24 +19,28 @@ module Rubydariah
 
     # Get
     def get(file)
-      response = @client[file].get
-      if response.code == 200
-        puts "success"
-      else
-        puts "something went wrong"
-      end
-      response
+      @client[file].get { |response, request, result, &block|
+        case response.code
+        when 200
+          payload = response.body
+          return response.code, payload
+        else
+          response.return!(request, result, &block)
+        end
+      }
     end
 
     # Head
     def head(file)
-      response = @client[file].head
-      if response.code == 200
-        puts "success"
-      else
-        puts "something went wrong"
-      end
-      response
+      @client[file].head { |response, request, result, &block|
+        case response.code
+        when 200
+          content_type = response.headers[:content_type]
+          return response.code, content_type
+        else
+          response.return!(request, result, &block)
+        end
+      }
     end
 
     # Post
@@ -47,7 +51,7 @@ module Rubydariah
         pid = URI(response.headers[:location]).path.split('/').last
         return response.code, pid
       else
-          response.return!(request, result, &block)
+        response.return!(request, result, &block)
       end
       }
     end
