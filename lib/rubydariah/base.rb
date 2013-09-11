@@ -112,7 +112,7 @@ module Rubydariah
           case response.code
           when 201
             pid = URI(response.headers[:location]).path.split('/').last
-            return response.code, pid
+            return response.code, pid unless pid.empty?
           else
             response.return!(request, result, &block)
           end
@@ -144,7 +144,7 @@ module Rubydariah
           case response.code
           when 201
             pid = URI(response.headers[:location]).path.split('/').last
-            return response.code, pid
+            return response.code, pid unless pid.empty?
           else
             response.return!(request, result, &block)
           end
