@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "rubydariah"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jimmy Tang", "Stuart Kenny", "Kathryn Cassidy"]
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://www.dri.ie/"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.3"
+  s.rubygems_version = "2.0.5"
   s.summary = "A thin ruby wrapper to the Dariah API"
 
   if s.respond_to? :specification_version then
