@@ -41,13 +41,15 @@ module Rubydariah
 
     # Post
     def post(file, content_type)
-      response = @client.post File.new(file, 'rb'), :content_type => content_type
-      if response.code == 201
-        puts "success"
+      @client.post(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
+      case response.code
+      when 201
+        pid = URI(response.headers[:location]).path.split('/').last
+        return response.code, pid
       else
-        puts "something went wrong"
+          response.return!(request, result, &block)
       end
-      response
+      }
     end
 
 
@@ -56,7 +58,7 @@ module Rubydariah
       RestClient::Request.execute(:method => :options, url: @endpoint, :payload => "*") { |response, request, result, &block|
         case response.code
         when 200
-          return response.headers[:allow]
+          return response.code, response.headers[:allow]
         else
           response.return!(request, result, &block)
         end
@@ -65,13 +67,14 @@ module Rubydariah
 
     # Delete
     def delete(pid)
-      response = @client[pid].delete
-      if response.code == 204
-        puts "success"
-      else
-        puts "something went wrong"
-      end
-      response
+      @client[pid].delete { |response, request, result, &block|
+        case response.code
+        when 204
+          return response.code
+        else
+          response.return!(request, result, &block)
+        end
+      }
     end
 
   end

@@ -19,48 +19,46 @@ describe Rubydariah::Storage do
 
   it "should post a file" do
     VCR.use_cassette 'post' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
-      response.code.should == 201
+      status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      status.should == 201
 
-      pid = URI(response.headers[:location]).path.split('/').last
-      response = @auth.delete(pid)
-      response.code.should == 204
+      status = @auth.delete(pid)
+      status.should == 204
     end
   end
 
   it "should get a file" do
     VCR.use_cassette 'get' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
-      response.code.should == 201
+      status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      status.should == 201
 
-      pid = URI(response.headers[:location]).path.split('/').last
       response = @auth.get(pid)
       response.code.should == 200
       response.headers[:content_type].should eq('audio/mpeg')
 
-      response = @auth.delete(pid)
-      response.code.should == 204
+      status = @auth.delete(pid)
+      status.should == 204
     end
   end
 
   it "should get the header" do
     VCR.use_cassette 'head' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
-      response.code.should == 201
+      status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      status.should == 201
 
-      pid = URI(response.headers[:location]).path.split('/').last
       response = @auth.head(pid)
       response.code.should == 200
       response.headers[:content_type].should eq('audio/mpeg')
 
-      response = @auth.delete(pid)
-      response.code.should == 204
+      status = @auth.delete(pid)
+      status.should == 204
     end
   end
 
   it "should get a list of options in the headers" do
     VCR.use_cassette 'options' do
-      allowed = @auth.options
+      status, allowed = @auth.options
+      status.should == 200
       allowed.should include "OPTIONS"
       allowed.should include "GET"
       allowed.should include "HEAD"
@@ -72,12 +70,11 @@ describe Rubydariah::Storage do
 
   it "should delete a file" do
     VCR.use_cassette 'delete' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
-      response.code.should == 201
+      status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      status.should == 201
 
-      pid = URI(response.headers[:location]).path.split('/').last
-      response = @auth.delete(pid)
-      response.code.should == 204
+      status = @auth.delete(pid)
+      status.should == 204
     end
   end
 
