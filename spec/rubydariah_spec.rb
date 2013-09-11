@@ -57,4 +57,15 @@ describe Rubydariah::Storage do
     end
   end
 
+  it "should delete a file" do
+    VCR.use_cassette 'delete' do
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response.code.should == 201
+
+      pid = URI(response.headers[:location]).path.split('/').last
+      response = @auth.delete(pid)
+      response.code.should == 204
+    end
+  end
+
 end
