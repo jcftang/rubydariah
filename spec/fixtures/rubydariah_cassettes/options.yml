@@ -27,7 +27,7 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Tue, 10 Sep 2013 13:43:02 GMT
+      - Wed, 11 Sep 2013 08:36:15 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -40,5 +40,5 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Tue, 10 Sep 2013 13:43:02 GMT
+  recorded_at: Wed, 11 Sep 2013 08:36:15 GMT
 recorded_with: VCR 2.5.0
