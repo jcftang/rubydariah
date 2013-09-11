@@ -17,13 +17,6 @@ describe Rubydariah::Storage do
     @auth.should be_kind_of Rubydariah::Storage
   end
 
-  it "should get a file" do
-    VCR.use_cassette 'get' do
-      response = @auth.get("resource")
-      response.code.should == 200
-    end
-  end
-
   it "should post a file" do
     VCR.use_cassette 'post' do
       response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
@@ -34,6 +27,21 @@ describe Rubydariah::Storage do
       response.code.should == 204
     end
   end
+
+  it "should get a file" do
+    VCR.use_cassette 'get' do
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response.code.should == 201
+
+      pid = URI(response.headers[:location]).path.split('/').last
+      response = @auth.get(pid)
+      response.code.should == 200
+
+      response = @auth.delete(pid)
+      response.code.should == 204
+    end
+  end
+
 
   it "should get a list of options in the headers" do
     VCR.use_cassette 'options' do
