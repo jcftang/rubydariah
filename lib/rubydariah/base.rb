@@ -3,6 +3,17 @@ module Rubydariah
     attr_accessor :endpoint, :username, :password
 
     # Initialise
+    #
+    # == Parameters:
+    # endpoint::
+    #   The URI to the Dariah Storage API
+    #
+    # username::
+    #   The username to use
+    #
+    # password::
+    #   The username to use
+    #
     def initialize(endpoint, username=nil, password=nil)
       @endpoint = endpoint
 
@@ -53,9 +64,21 @@ module Rubydariah
     end
 
     # Head
-    def head(file)
+    #
+    # == Parameters:
+    # pid::
+    #   The PID of the object to inspect
+    #
+    # == Returns:
+    # status::
+    #   The status of the request
+    #
+    # content_type::
+    #   The content/mime type
+    #
+    def head(pid)
       handle_exception {
-        @client[file].head { |response, request, result, &block|
+        @client[pid].head { |response, request, result, &block|
           case response.code
           when 200
             content_type = response.headers[:content_type]
@@ -68,6 +91,21 @@ module Rubydariah
     end
 
     # Post
+    #
+    # == Parameters:
+    # file::
+    #   The file handle of the object to post to the storage system
+    #
+    # content_type::
+    #   The content/mime type
+    #
+    # == Returns:
+    # status::
+    #   The status of the request
+    #
+    # pid::
+    #   The PID assigned to the object
+    #
     def post(file, content_type)
       handle_exception {
         @client.post(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
@@ -83,6 +121,23 @@ module Rubydariah
     end
 
     # Put
+    #
+    # Update a PID's data
+    #
+    # == Parameters:
+    # file::
+    #   The file handle of the object to put to the storage system
+    #
+    # content_type::
+    #   The content/mime type
+    #
+    # == Returns:
+    # status::
+    #   The status of the request
+    #
+    # pid::
+    #   The PID assigned to the object
+    #
     def put(pid, file, content_type)
       handle_exception {
         @client[pid].put(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
@@ -98,6 +153,9 @@ module Rubydariah
     end
 
     # Options
+    #
+    # Get a list of allowed methods
+    #
     def options
       handle_exception {
         RestClient::Request.execute(:method => :options, url: @endpoint, :payload => "*") { |response, request, result, &block|
@@ -112,6 +170,15 @@ module Rubydariah
     end
 
     # Delete
+    #
+    # == Parameters:
+    # pid::
+    #   The PID of the object to delete
+    #
+    # == Returns:
+    # status::
+    #   The status of the request
+    #
     def delete(pid)
       handle_exception {
         @client[pid].delete { |response, request, result, &block|
