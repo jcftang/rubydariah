@@ -60,15 +60,13 @@ describe Rubydariah::Storage do
 
   it "should get a list of options in the headers" do
     VCR.use_cassette 'options' do
-      response = @auth.options
-      response.code.should == 200
-      allow = response.headers[:allow]
-      allow.should include "OPTIONS"
-      allow.should include "GET"
-      allow.should include "HEAD"
-      allow.should include "POST"
-      allow.should include "PUT"
-      allow.should include "DELETE"
+      allowed = @auth.options
+      allowed.should include "OPTIONS"
+      allowed.should include "GET"
+      allowed.should include "HEAD"
+      allowed.should include "POST"
+      allowed.should include "PUT"
+      allowed.should include "DELETE"
     end
   end
 

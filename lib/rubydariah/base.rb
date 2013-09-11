@@ -53,13 +53,14 @@ module Rubydariah
 
     # Options
     def options
-      response = RestClient::Request.execute(:method => :options, url: @endpoint, :payload => "*")
-      if response.code == 200
-        puts "success"
-      else
-        puts "something went wrong"
-      end
-      response
+      RestClient::Request.execute(:method => :options, url: @endpoint, :payload => "*") { |response, request, result, &block|
+        case response.code
+        when 200
+          return response.headers[:allow]
+        else
+          response.return!(request, result, &block)
+        end
+      }
     end
 
     # Delete
