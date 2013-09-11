@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
     "spec/fixtures/rubydariah_cassettes/head.yml",
     "spec/fixtures/rubydariah_cassettes/options.yml",
     "spec/fixtures/rubydariah_cassettes/post.yml",
+    "spec/fixtures/rubydariah_cassettes/put.yml",
     "spec/fixtures/samplefile.mp3",
     "spec/rubydariah_spec.rb",
     "spec/spec_helper.rb"
