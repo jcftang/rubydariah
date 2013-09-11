@@ -40,8 +40,8 @@ module Rubydariah
     end
 
     # Post
-    def post(file)
-      response = @client.post File.new(file, 'rb')
+    def post(file, content_type)
+      response = @client.post File.new(file, 'rb'), :content_type => content_type
       if response.code == 201
         puts "success"
       else

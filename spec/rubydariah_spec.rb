@@ -19,7 +19,7 @@ describe Rubydariah::Storage do
 
   it "should post a file" do
     VCR.use_cassette 'post' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       response.code.should == 201
 
       pid = URI(response.headers[:location]).path.split('/').last
@@ -30,12 +30,13 @@ describe Rubydariah::Storage do
 
   it "should get a file" do
     VCR.use_cassette 'get' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       response.code.should == 201
 
       pid = URI(response.headers[:location]).path.split('/').last
       response = @auth.get(pid)
       response.code.should == 200
+      response.headers[:content_type].should eq('audio/mpeg')
 
       response = @auth.delete(pid)
       response.code.should == 204
@@ -44,12 +45,13 @@ describe Rubydariah::Storage do
 
   it "should get the header" do
     VCR.use_cassette 'head' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       response.code.should == 201
 
       pid = URI(response.headers[:location]).path.split('/').last
       response = @auth.head(pid)
       response.code.should == 200
+      response.headers[:content_type].should eq('audio/mpeg')
 
       response = @auth.delete(pid)
       response.code.should == 204
@@ -72,7 +74,7 @@ describe Rubydariah::Storage do
 
   it "should delete a file" do
     VCR.use_cassette 'delete' do
-      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'))
+      response = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
       response.code.should == 201
 
       pid = URI(response.headers[:location]).path.split('/').last
