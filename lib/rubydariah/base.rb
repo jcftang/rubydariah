@@ -47,7 +47,6 @@ module Rubydariah
       else
         puts "something went wrong"
       end
- 
       response
     end
 
