@@ -25,9 +25,11 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
     "lib/rubydariah.rb",
     "lib/rubydariah/base.rb",
     "lib/rubydariah/exceptions.rb",
+    "rubydariah.gemspec",
     "spec/fixtures/rubydariah_cassettes/delete.yml",
     "spec/fixtures/rubydariah_cassettes/get.yml",
     "spec/fixtures/rubydariah_cassettes/get_exception.yml",
@@ -38,7 +40,7 @@ Gem::Specification.new do |s|
     "spec/rubydariah_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/jcftang/rubydariah"
+  s.homepage = "http://www.dri.ie/"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "2.0.3"

@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rubydariah"
-  gem.homepage = "http://github.com/jcftang/rubydariah"
+  gem.homepage = "http://www.dri.ie/"
   gem.license = "MIT"
   gem.summary = %Q{A thin ruby wrapper to the Dariah API}
   gem.description = %Q{This gem provides low level access to the Dariah infrastructure}
