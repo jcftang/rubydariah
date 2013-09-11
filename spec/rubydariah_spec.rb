@@ -59,6 +59,12 @@ describe Rubydariah::Storage do
     end
   end
 
+  it "should raise an error if an exception is caught" do
+    VCR.use_cassette 'get_exception' do
+      expect { @auth.get('test') }.to raise_error(Rubydariah::DariahError)
+    end
+  end
+     
   it "should get a list of options in the headers" do
     VCR.use_cassette 'options' do
       status, allowed = @auth.options

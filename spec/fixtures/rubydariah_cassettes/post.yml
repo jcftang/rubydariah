@@ -2862,17 +2862,17 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Location:
-      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163154
+      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163410
       Etag:
       - ! '"7e6739ee02b095961b39a05bf4f17b88"'
       Last-Modified:
-      - Wed, 11 Sep 2013 10:07:34 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       Content-Type:
       - audio/mpeg
       Content-Length:
       - '0'
       Date:
-      - Wed, 11 Sep 2013 10:07:34 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -2885,10 +2885,10 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 10:07:35 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:27 GMT
 - request:
     method: delete
-    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163154
+    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163410
     body:
       encoding: US-ASCII
       string: ''
@@ -2907,9 +2907,9 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Wed, 11 Sep 2013 10:07:34 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       Date:
-      - Wed, 11 Sep 2013 10:07:34 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -2922,5 +2922,5 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 10:07:35 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:27 GMT
 recorded_with: VCR 2.5.0

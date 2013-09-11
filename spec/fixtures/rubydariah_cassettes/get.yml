@@ -2845,7 +2845,7 @@ http_interactions:
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - ! '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       Content-Type:
@@ -2862,17 +2862,17 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Location:
-      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163351
+      - http://ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163411
       Etag:
-      - '"7e6739ee02b095961b39a05bf4f17b88"'
+      - ! '"7e6739ee02b095961b39a05bf4f17b88"'
       Last-Modified:
-      - Wed, 11 Sep 2013 13:18:11 GMT
+      - Wed, 11 Sep 2013 13:54:28 GMT
       Content-Type:
       - audio/mpeg
       Content-Length:
       - '0'
       Date:
-      - Wed, 11 Sep 2013 13:18:12 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -2882,19 +2882,19 @@ http_interactions:
       Proxy-Connection:
       - close
     body:
-      encoding: UTF-8
+      encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 13:18:12 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:28 GMT
 - request:
     method: head
-    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163351
+    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163411
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - ! '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -2907,15 +2907,15 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Wed, 11 Sep 2013 13:18:11 GMT
+      - Wed, 11 Sep 2013 13:54:28 GMT
       Etag:
-      - '"7e6739ee02b095961b39a05bf4f17b88"'
+      - ! '"7e6739ee02b095961b39a05bf4f17b88"'
       Content-Type:
       - audio/mpeg
       Content-Length:
       - '0'
       Date:
-      - Wed, 11 Sep 2013 13:18:12 GMT
+      - Wed, 11 Sep 2013 13:54:27 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -2925,19 +2925,19 @@ http_interactions:
       Proxy-Connection:
       - close
     body:
-      encoding: UTF-8
+      encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 13:18:12 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:28 GMT
 - request:
     method: get
-    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163351
+    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163411
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - ! '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -2945,26 +2945,37 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: !binary |-
+        T0s=
     headers:
-      Server:
-      - Apache-Coyote/1.1
-      Etag:
-      - '"7e6739ee02b095961b39a05bf4f17b88"'
-      Last-Modified:
-      - Wed, 11 Sep 2013 13:18:11 GMT
-      Content-Type:
-      - audio/mpeg
-      Date:
-      - Wed, 11 Sep 2013 13:18:12 GMT
-      X-Cache:
-      - MISS from gateway.tchpc.tcd.ie
-      X-Cache-Lookup:
-      - MISS from gateway.tchpc.tcd.ie:8080
-      Via:
-      - 1.0 gateway.tchpc.tcd.ie:8080 (squid/2.6.STABLE21)
-      Proxy-Connection:
-      - close
+      !binary "U2VydmVy":
+      - !binary |-
+        QXBhY2hlLUNveW90ZS8xLjE=
+      !binary "RXRhZw==":
+      - !binary |-
+        IjdlNjczOWVlMDJiMDk1OTYxYjM5YTA1YmY0ZjE3Yjg4Ig==
+      !binary "TGFzdC1Nb2RpZmllZA==":
+      - !binary |-
+        V2VkLCAxMSBTZXAgMjAxMyAxMzo1NDoyOCBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXVkaW8vbXBlZw==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAxMSBTZXAgMjAxMyAxMzo1NDoyNyBHTVQ=
+      !binary "WC1DYWNoZQ==":
+      - !binary |-
+        TUlTUyBmcm9tIGdhdGV3YXkudGNocGMudGNkLmll
+      !binary "WC1DYWNoZS1Mb29rdXA=":
+      - !binary |-
+        TUlTUyBmcm9tIGdhdGV3YXkudGNocGMudGNkLmllOjgwODA=
+      !binary "Vmlh":
+      - !binary |-
+        MS4wIGdhdGV3YXkudGNocGMudGNkLmllOjgwODAgKHNxdWlkLzIuNi5TVEFC
+        TEUyMSk=
+      !binary "UHJveHktQ29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -5806,16 +5817,16 @@ http_interactions:
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 13:18:12 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:28 GMT
 - request:
     method: delete
-    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163351
+    uri: http://foo:bar@ipedariah1.lsdf.kit.edu:8080/StorageImplementation-1.0-SNAPSHOT/163411
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - ! '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -5828,9 +5839,9 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Wed, 11 Sep 2013 13:18:11 GMT
+      - Wed, 11 Sep 2013 13:54:28 GMT
       Date:
-      - Wed, 11 Sep 2013 13:18:12 GMT
+      - Wed, 11 Sep 2013 13:54:28 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -5840,8 +5851,8 @@ http_interactions:
       Proxy-Connection:
       - close
     body:
-      encoding: UTF-8
+      encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 13:18:12 GMT
+  recorded_at: Wed, 11 Sep 2013 13:54:28 GMT
 recorded_with: VCR 2.5.0
