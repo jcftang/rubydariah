@@ -27,6 +27,16 @@ describe Rubydariah::Storage do
     end
   end
 
+  it "should put a file" do
+    VCR.use_cassette 'put' do
+      status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      status.should == 201
+
+      status, put_pid = @auth.put(pid, File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')
+      put_pid.should == pid
+    end
+  end
+
   it "should get a file" do
     VCR.use_cassette 'get' do
       status, pid = @auth.post(File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3'), 'audio/mpeg')

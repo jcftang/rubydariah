@@ -70,6 +70,21 @@ module Rubydariah
       }
     end
 
+    # Put
+    def put(pid, file, content_type)
+      handle_exception {
+        @client[pid].put(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
+          case response.code
+          when 201
+            pid = URI(response.headers[:location]).path.split('/').last
+            return response.code, pid
+          else
+            response.return!(request, result, &block)
+          end
+        }
+      }
+    end
+
     # Options
     def options
       handle_exception {
