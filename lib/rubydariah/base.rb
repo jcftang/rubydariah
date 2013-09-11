@@ -93,8 +93,8 @@ module Rubydariah
     # Post
     #
     # == Parameters:
-    # file::
-    #   The file handle of the object to post to the storage system
+    # payload::
+    #   The payload of the object to post to the storage system
     #
     # content_type::
     #   The content/mime type
@@ -106,9 +106,9 @@ module Rubydariah
     # pid::
     #   The PID assigned to the object
     #
-    def post(file, content_type)
+    def post(payload, content_type)
       handle_exception {
-        @client.post(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
+        @client.post(payload, :content_type => content_type) { |response, request, result, &block|
           case response.code
           when 201
             pid = URI(response.headers[:location]).path.split('/').last
@@ -125,8 +125,8 @@ module Rubydariah
     # Update a PID's data
     #
     # == Parameters:
-    # file::
-    #   The file handle of the object to put to the storage system
+    # payload::
+    #   The payload of the object to put to the storage system
     #
     # content_type::
     #   The content/mime type
@@ -138,9 +138,9 @@ module Rubydariah
     # pid::
     #   The PID assigned to the object
     #
-    def put(pid, file, content_type)
+    def put(pid, payload, content_type)
       handle_exception {
-        @client[pid].put(File.new(file, 'rb'), :content_type => content_type) { |response, request, result, &block|
+        @client[pid].put(payload, :content_type => content_type) { |response, request, result, &block|
           case response.code
           when 201
             pid = URI(response.headers[:location]).path.split('/').last

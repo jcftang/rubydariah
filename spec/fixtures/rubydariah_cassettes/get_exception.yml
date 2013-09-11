@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - ! '*/*; q=0.5, application/xml'
+      - '*/*; q=0.5, application/xml'
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       Content-Length:
       - '979'
       Date:
-      - Wed, 11 Sep 2013 14:12:54 GMT
+      - Wed, 11 Sep 2013 15:42:12 GMT
       X-Cache:
       - MISS from gateway.tchpc.tcd.ie
       X-Cache-Lookup:
@@ -35,8 +35,8 @@ http_interactions:
       Proxy-Connection:
       - close
     body:
-      encoding: US-ASCII
-      string: ! '<html><head><title>Apache Tomcat/7.0.25 - Error report</title><style><!--H1
+      encoding: UTF-8
+      string: '<html><head><title>Apache Tomcat/7.0.25 - Error report</title><style><!--H1
         {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
         H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
         H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;}
@@ -49,5 +49,5 @@ http_interactions:
         requested resource (Not Found) is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache
         Tomcat/7.0.25</h3></body></html>'
     http_version: 
-  recorded_at: Wed, 11 Sep 2013 14:12:54 GMT
+  recorded_at: Wed, 11 Sep 2013 15:42:12 GMT
 recorded_with: VCR 2.5.0

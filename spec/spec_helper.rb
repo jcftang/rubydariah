@@ -10,6 +10,7 @@ SimpleCov.start
 require 'rspec'
 require 'rspec/expectations'
 require 'rubydariah'
+require 'digest/md5'
 
 # Dependencies
 require 'vcr'
@@ -21,6 +22,10 @@ WebMock.allow_net_connect!
 VCR.configure { |c|
   c.cassette_library_dir = 'spec/fixtures/rubydariah_cassettes'
   c.hook_into :webmock
+  c.preserve_exact_body_bytes do |http_message|
+    http_message.body.encoding.name == 'ASCII-8BIT' ||
+      !http_message.body.valid_encoding?
+  end
 }
 
 # Requires supporting files with custom matchers and macros, etc,

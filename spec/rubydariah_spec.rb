@@ -20,8 +20,8 @@ describe Rubydariah::Storage do
   it "should post a file" do
     VCR.use_cassette 'post' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
-      data = File.read(file_location)
-      status, pid = @auth.post(file_location, 'audio/mpeg')
+      file_data = File.read(file_location)
+      status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
       status = @auth.delete(pid)
@@ -32,18 +32,26 @@ describe Rubydariah::Storage do
   it "should put a file" do
     VCR.use_cassette 'put' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
-      status, pid = @auth.post(file_location, 'audio/mpeg')
+      file_data = File.read(file_location)
+
+      md5 = Digest::MD5.hexdigest(file_data)
+      status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
-      status, put_pid = @auth.put(pid, file_location, 'audio/mpeg')
+      status, put_pid = @auth.put(pid, file_data, 'audio/mpeg')
       put_pid.should == pid
+
+      status, data = @auth.get(put_pid)
+      put_md5 = Digest::MD5.hexdigest(data)
+      put_md5.should == md5
     end
   end
 
   it "should get a file" do
     VCR.use_cassette 'get' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
-      status, pid = @auth.post(file_location, 'audio/mpeg')
+      file_data = File.read(file_location)
+      status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
       status, content_type = @auth.head(pid)
@@ -62,7 +70,8 @@ describe Rubydariah::Storage do
   it "should get the header" do
     VCR.use_cassette 'head' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
-      status, pid = @auth.post(file_location, 'audio/mpeg')
+      file_data = File.read(file_location)
+      status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
       status, content_type = @auth.head(pid)
@@ -96,7 +105,8 @@ describe Rubydariah::Storage do
   it "should delete a file" do
     VCR.use_cassette 'delete' do
       file_location = File.expand_path(File.dirname(__FILE__) + '/fixtures/samplefile.mp3')
-      status, pid = @auth.post(file_location, 'audio/mpeg')
+      file_data = File.read(file_location)
+      status, pid = @auth.post(file_data, 'audio/mpeg')
       status.should == 201
 
       status = @auth.delete(pid)
