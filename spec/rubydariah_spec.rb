@@ -47,6 +47,13 @@ describe Rubydariah::Storage do
     VCR.use_cassette 'options' do
       response = @auth.options
       response.code.should == 200
+      allow = response.headers[:allow]
+      allow.should include "OPTIONS"
+      allow.should include "GET"
+      allow.should include "HEAD"
+      allow.should include "POST"
+      allow.should include "PUT"
+      allow.should include "DELETE"
     end
   end
 
