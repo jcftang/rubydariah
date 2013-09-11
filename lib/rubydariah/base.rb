@@ -25,10 +25,22 @@ module Rubydariah
       end
     end
 
-    # Get
-    def get(file)
+    # Getting a file
+    #
+    # == Parameters:
+    # pid::
+    #   The PID of the object to be retrieved
+    #
+    # == Returns
+    # status::
+    #   The status of the request
+    #
+    # payload::
+    #   The binary data from the request
+    #
+    def get(pid)
       handle_exception {
-        @client[file].get { |response, request, result, &block|
+        @client[pid].get { |response, request, result, &block|
           case response.code
           when 200
             payload = response.body
