@@ -12,11 +12,10 @@ module Rubydariah
 
     # Get
     def get(file)
-      response = RestClient.get("#{@auth[:endpoint]}/#{file}")
-      if response.code == 200
-        puts "success"
-      else
-        puts "something went wrong"
+      begin
+        response = RestClient.get("#{@auth[:endpoint]}/#{file}")
+      rescue => e
+        e.response
       end
       response
     end
@@ -24,14 +23,12 @@ module Rubydariah
 
     # Post
     def post(file)
-      puts "endpoint is #{@auth[:endpoint]} and file is #{file}"
       response = RestClient.post @auth[:endpoint], :data => File.new(file, 'rb')
       if response.code == 201
         puts "success"
       else
         puts "something went wrong"
       end
-
       response
     end
 
