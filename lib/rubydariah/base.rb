@@ -1,5 +1,7 @@
 module Rubydariah
   class Storage
+    include ActiveModel::Validations
+    validates_presence_of :endpoint, :username, :password
     attr_accessor :endpoint, :username, :password
 
     # Initialise
@@ -15,7 +17,7 @@ module Rubydariah
     #   The username to use
     #
     def initialize(endpoint, username=nil, password=nil)
-      @endpoint = endpoint
+      @endpoint, @username, @password = endpoint, username, password
 
       unless (username.nil? || password.nil?)
         @client = RestClient::Resource.new endpoint, username, password

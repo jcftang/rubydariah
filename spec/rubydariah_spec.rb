@@ -15,6 +15,7 @@ describe Rubydariah::Storage do
 
   it "should create a new object" do
     @dariah.should be_kind_of Rubydariah::Storage
+    @dariah.should be_valid
   end
 
   it "should post a file" do
