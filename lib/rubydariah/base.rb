@@ -2,20 +2,8 @@ module Rubydariah
   class Storage
     include ActiveModel::Validations
     validates_presence_of :endpoint, :username, :password
-    attr_accessor :endpoint, :username, :password
+    attr_accessor :endpoint, :username, :password, :id, :payload, :content_type
 
-    # Initialise
-    #
-    # == Parameters:
-    # endpoint::
-    #   The URI to the Dariah Storage API
-    #
-    # username::
-    #   The username to use
-    #
-    # password::
-    #   The username to use
-    #
     def initialize(endpoint, username=nil, password=nil)
       @endpoint, @username, @password = endpoint, username, password
 
@@ -38,26 +26,14 @@ module Rubydariah
       end
     end
 
-    # Getting a file
-    #
-    # == Parameters:
-    # pid::
-    #   The PID of the object to be retrieved
-    #
-    # == Returns
-    # status::
-    #   The status of the request
-    #
-    # payload::
-    #   The binary data from the request
-    #
-    def get(pid)
+    def get_by_id(pid)
       handle_exception {
         @client[pid].get { |response, request, result, &block|
           case response.code
           when 200
-            payload = response.body
-            return response.code, payload
+            self.payload = response.body
+            self.id = pid
+            head(self.id)
           else
             response.return!(request, result, &block)
           end
@@ -65,26 +41,12 @@ module Rubydariah
       }
     end
 
-    # Head
-    #
-    # == Parameters:
-    # pid::
-    #   The PID of the object to inspect
-    #
-    # == Returns:
-    # status::
-    #   The status of the request
-    #
-    # content_type::
-    #   The content/mime type
-    #
     def head(pid)
       handle_exception {
         @client[pid].head { |response, request, result, &block|
           case response.code
           when 200
-            content_type = response.headers[:content_type]
-            return response.code, content_type
+            self.content_type = response.headers[:content_type]
           else
             response.return!(request, result, &block)
           end
@@ -92,61 +54,13 @@ module Rubydariah
       }
     end
 
-    # Post
-    #
-    # == Parameters:
-    # payload::
-    #   The payload of the object to post to the storage system
-    #
-    # content_type::
-    #   The content/mime type
-    #
-    # == Returns:
-    # status::
-    #   The status of the request
-    #
-    # pid::
-    #   The PID assigned to the object
-    #
-    def post(payload, content_type)
-      handle_exception {
-        @client.post(payload, :content_type => content_type) { |response, request, result, &block|
-          case response.code
-          when 201
-            pid = URI(response.headers[:location]).path.split('/').last
-            return response.code, pid unless pid.empty?
-          else
-            response.return!(request, result, &block)
-          end
-        }
-      }
-    end
-
-    # Put
-    #
-    # Update a PID's data
-    #
-    # == Parameters:
-    # payload::
-    #   The payload of the object to put to the storage system
-    #
-    # content_type::
-    #   The content/mime type
-    #
-    # == Returns:
-    # status::
-    #   The status of the request
-    #
-    # pid::
-    #   The PID assigned to the object
-    #
     def put(pid, payload, content_type)
       handle_exception {
         @client[pid].put(payload, :content_type => content_type) { |response, request, result, &block|
           case response.code
           when 201
-            pid = URI(response.headers[:location]).path.split('/').last
-            return response.code, pid unless pid.empty?
+            self.id = URI(response.headers[:location]).path.split('/').last
+            return response.code, self.id unless self.id.empty?
           else
             response.return!(request, result, &block)
           end
@@ -171,22 +85,36 @@ module Rubydariah
       }
     end
 
-    # Delete
-    #
-    # == Parameters:
-    # pid::
-    #   The PID of the object to delete
-    #
-    # == Returns:
-    # status::
-    #   The status of the request
-    #
-    def delete(pid)
+    def delete_by_id(pid)
       handle_exception {
         @client[pid].delete { |response, request, result, &block|
           case response.code
           when 204
             return response.code
+          else
+            response.return!(request, result, &block)
+          end
+        }
+      }
+      @@instances.delete(self)
+    end
+
+    def save
+      post unless self.payload.empty? and self.content.empty?
+    end
+
+    def update
+      self.put(self.id, self.payload, self.content_type)
+    end
+
+    private
+    def post
+      handle_exception {
+        @client.post(self.payload, :content_type => self.content_type) { |response, request, result, &block|
+          case response.code
+          when 201
+            self.id = URI(response.headers[:location]).path.split('/').last
+            return response.code, self.id unless self.id.empty?
           else
             response.return!(request, result, &block)
           end
