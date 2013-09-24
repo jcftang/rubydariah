@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jimmy Tang", "Stuart Kenny", "Kathryn Cassidy"]
-  s.date = "2013-09-11"
+  s.date = "2013-09-24"
   s.description = "This gem provides low level access to the Dariah infrastructure"
   s.email = "jtang@tchpc.tcd.ie, skenny@tchpc.tcd.ie, kcassidy@tchpc.tcd.ie"
   s.extra_rdoc_files = [
@@ -37,7 +37,10 @@ Gem::Specification.new do |s|
     "spec/fixtures/rubydariah_cassettes/options.yml",
     "spec/fixtures/rubydariah_cassettes/post.yml",
     "spec/fixtures/rubydariah_cassettes/put.yml",
+    "spec/fixtures/rubydariah_cassettes/save.yml",
+    "spec/fixtures/rubydariah_cassettes/update.yml",
     "spec/fixtures/samplefile.mp3",
+    "spec/fixtures/samplefile2.mp3",
     "spec/rubydariah_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -52,6 +55,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rest-client>, [">= 0"])
+      s.add_runtime_dependency(%q<activemodel>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_development_dependency(%q<rspec-expectations>, [">= 0"])
       s.add_development_dependency(%q<mocha>, [">= 0"])
@@ -74,6 +78,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, [">= 0"])
     else
       s.add_dependency(%q<rest-client>, [">= 0"])
+      s.add_dependency(%q<activemodel>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_dependency(%q<rspec-expectations>, [">= 0"])
       s.add_dependency(%q<mocha>, [">= 0"])
@@ -97,6 +102,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<rest-client>, [">= 0"])
+    s.add_dependency(%q<activemodel>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.8.0"])
     s.add_dependency(%q<rspec-expectations>, [">= 0"])
     s.add_dependency(%q<mocha>, [">= 0"])
